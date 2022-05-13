@@ -15,21 +15,22 @@ router.get('/', (req, res) => {
 
 router.post('/agenda', agendamento.addAgendamento)
 router.get('/agenda', agendamento.buscarAgendamento)
-router.get('/agenda/:id_agendamento', agendamento.buscarUmAgendamento)
 router.put('/agenda/:id_agendamento', agendamento.attAgendamento)
 router.delete('/agenda/:id_agendamento', agendamento.deletarAgendamento)
+router.get('/agenda/:id_agendamento', agendamento.buscarUmAgendamento)
 router.get('/agendaCliente/:tbClienteIdCliente', agendamento.buscarAgendamentoCliente)
 
 router.post('/clientes', clientes.addCliente)
 router.get('/clientes', clientes.buscaTodosClientes)
-router.get('/clientes/:id_cliente', clientes.buscaUmCliente)
 router.put('/clientes/:id_cliente', clientes.attCliente)
 router.delete('/clientes/:id_cliente', clientes.deletarCliente)
+router.get('/clientes/:id_cliente', clientes.buscaUmCliente)
 
 router.post('/clientesEndereco', endereco.addEnderecoCliente)
 router.get('/clientesEndereco', endereco.buscaTodosEnderecosCliente)
 router.put('/clientesEndereco/:id_endereco_cliente', endereco.attEnderecoCliente)
 router.delete('/clientesEndereco/:id_endereco_cliente', endereco.deletarEnderecoCliente)
+router.get('/clientesEndereco/:tbClienteIdCliente', endereco.buscarEnderecoCliente)
 
 router.post('/funcionario', funcionario.addFuncionario)
 router.get('/funcionario', funcionario.buscaTodosFuncionarios)
@@ -45,9 +46,6 @@ router.post('/servicos', servicos.addServico)
 router.get('/servicos', servicos.buscaTodosServicos)
 router.put('/servicos/:id_servico', servicos.attServico)
 router.delete('/servicos/:id_servico', servicos.deletarServico)
-
-router.get('/clientesEndereco/:tbClienteIdCliente', endereco.buscarEnderecoCliente)
-
 router.get('/servicosLavaRapido/:tbLavaRapidoIdLavaRapido', servicos.buscarServicoLavaRapido)
 router.get('/servicosPreco/:id_servico', servicos.buscarPrecoServicoLavaRapido)
 

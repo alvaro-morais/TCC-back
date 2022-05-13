@@ -37,7 +37,7 @@ function addAgendamento(req, res) {
     tbClienteIdCliente: body.tbClienteIdCliente,
     tbLavaRapidoIdLavaRapido: body.tbLavaRapidoIdLavaRapido,
     tbServicoIdServico: body.tbServicoIdServico,
-    tbEnderecoIdEndereco: body.tbEnderecoIdEndereco,
+    tbEnderecoClienteIdEnderecoCliente: body.tbEnderecoClienteIdEnderecoCliente,
     modo: body.modo,
   }).then((result) => res.json(result))
 }
@@ -53,7 +53,7 @@ async function attAgendamento(req, res) {
       tbClienteIdCliente: body.tbClienteIdCliente,
       tbLavaRapidoIdLavaRapido: body.tbLavaRapidoIdLavaRapido,
       tbServicoIdServico: body.tbServicoIdServico,
-      tbEnderecoIdEndereco: body.tbEnderecoIdEndereco,
+      tbEnderecoClienteIdEnderecoCliente: body.tbEnderecoClienteIdEnderecoCliente,
       modo: body.modo,
     },
     {
