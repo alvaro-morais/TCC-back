@@ -6,6 +6,7 @@ import agendamento from './controllers/agendamentos.js'
 import funcionario from './controllers/funcionarios.js'
 import lavaRapidos from './controllers/lavaRapidos.js'
 import servicos from './controllers/servicos.js'
+import autenticacao from './controllers/autenticacao.js'
 
 const router = express.Router()
 
@@ -15,11 +16,14 @@ router.get('/', (req, res) => {
 
 router.post('/agenda', agendamento.addAgendamento)
 router.get('/agenda', agendamento.buscarAgendamento)
+router.get('/agenda/:id_agendamento', agendamento.buscarUmAgendamento)
 router.put('/agenda/:id_agendamento', agendamento.attAgendamento)
 router.delete('/agenda/:id_agendamento', agendamento.deletarAgendamento)
+router.get('/agendaCliente/:tbClienteIdCliente', agendamento.buscarAgendamentoCliente)
 
 router.post('/clientes', clientes.addCliente)
 router.get('/clientes', clientes.buscaTodosClientes)
+router.get('/clientes/:id_cliente', clientes.buscaUmCliente)
 router.put('/clientes/:id_cliente', clientes.attCliente)
 router.delete('/clientes/:id_cliente', clientes.deletarCliente)
 
@@ -43,9 +47,11 @@ router.get('/servicos', servicos.buscaTodosServicos)
 router.put('/servicos/:id_servico', servicos.attServico)
 router.delete('/servicos/:id_servico', servicos.deletarServico)
 
-router.post('/adms', adms.addAdm)
-router.get('/adms', adms.buscaTodosAdms)
-router.put('/adms/:id_administrador', adms.attAdm)
-router.delete('/adms/:id_administrador', adms.deletarAdm)
+router.get('/clientesEndereco/:tbClienteIdCliente', endereco.buscarEnderecoCliente)
+
+router.get('/servicosLavaRapido/:tbLavaRapidoIdLavaRapido', servicos.buscarServicoLavaRapido)
+router.get('/servicosPreco/:id_servico', servicos.buscarPrecoServicoLavaRapido)
+
+router.post('/login', autenticacao.login)
 
 export default router
