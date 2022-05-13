@@ -1,6 +1,5 @@
 import express from 'express'
 import clientes from './controllers/clientes.js'
-import adms from './controllers/administradores.js'
 import endereco from './controllers/enderecosCliente.js'
 import agendamento from './controllers/agendamentos.js'
 import funcionario from './controllers/funcionarios.js'
