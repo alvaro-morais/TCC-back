@@ -9,6 +9,15 @@ function buscaTodosLavaRapidos(req, res) {
   }).then((result) => res.json(result))
 }
 
+function buscarUmLavaRapido(req, res) {
+  LavaRapidoRepository.findAll({
+    include: { all: true, nested: true },
+    where: {
+      id_lava_rapido: req.params.id_lava_rapido,
+    },
+  }).then((result) => res.json(result))
+}
+
 function addLavaRapido(req, res) {
   const { body } = req
   LavaRapidoRepository.create({
@@ -56,4 +65,4 @@ async function deletarLavaRapido(req, res) {
   LavaRapidoRepository.findAll().then((result) => res.json(result))
 }
 
-export default { addLavaRapido, buscaTodosLavaRapidos, attLavaRapido, deletarLavaRapido }
+export default { addLavaRapido, buscaTodosLavaRapidos, attLavaRapido, deletarLavaRapido, buscarUmLavaRapido }

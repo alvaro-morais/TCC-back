@@ -26,6 +26,15 @@ function buscarPrecoServicoLavaRapido(req, res) {
   }).then((result) => res.json(result))
 }
 
+function buscarUmServico(req, res) {
+  ServicoRepository.findAll({
+    include: { all: true, nested: true },
+    where: {
+      id_servico: req.params.id_servico,
+    },
+  }).then((result) => res.json(result))
+}
+
 function addServico(req, res) {
   const { body } = req
   ServicoRepository.create({
@@ -72,4 +81,5 @@ export default {
   deletarServico,
   buscarServicoLavaRapido,
   buscarPrecoServicoLavaRapido,
+  buscarUmServico,
 }

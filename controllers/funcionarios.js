@@ -9,6 +9,15 @@ function buscaTodosFuncionarios(req, res) {
   }).then((result) => res.json(result))
 }
 
+function buscarUmFuncionario(req, res) {
+  LavaRapidoRepository.findAll({
+    include: { all: true, nested: true },
+    where: {
+      id_funcionario: req.params.id_funcionario,
+    },
+  }).then((result) => res.json(result))
+}
+
 function addFuncionario(req, res) {
   const { body } = req
   FuncionarioRepository.create({
@@ -52,4 +61,4 @@ async function deletarFuncionario(req, res) {
   FuncionarioRepository.findAll().then((result) => res.json(result))
 }
 
-export default { addFuncionario, buscaTodosFuncionarios, attFuncionario, deletarFuncionario }
+export default { addFuncionario, buscaTodosFuncionarios, attFuncionario, deletarFuncionario, buscarUmFuncionario }

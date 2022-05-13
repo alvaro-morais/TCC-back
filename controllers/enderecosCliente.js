@@ -9,11 +9,20 @@ function buscaTodosEnderecosCliente(req, res) {
   }).then((result) => res.json(result))
 }
 
-function buscarEnderecoCliente(req, res) {
+function buscarEnderecoPeloCliente(req, res) {
   EnderecoClienteRepository.findAll({
     include: { all: true, nested: true },
     where: {
       tbClienteIdCliente: req.params.tbClienteIdCliente,
+    },
+  }).then((result) => res.json(result))
+}
+
+function buscarUmEnderecoCliente(req, res) {
+  EnderecoClienteRepository.findAll({
+    include: { all: true, nested: true },
+    where: {
+      id_endereco_cliente: req.params.id_endereco_cliente,
     },
   }).then((result) => res.json(result))
 }
@@ -72,5 +81,6 @@ export default {
   addEnderecoCliente,
   attEnderecoCliente,
   deletarEnderecoCliente,
-  buscarEnderecoCliente,
+  buscarEnderecoPeloCliente,
+  buscarUmEnderecoCliente,
 }
