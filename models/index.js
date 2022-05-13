@@ -8,8 +8,10 @@ import servico from './servicoModel.js'
 agendamento.belongsTo(cliente)
 agendamento.belongsTo(lavaRapido)
 agendamento.belongsTo(servico)
+agendamento.belongsTo(endereco)
 
 endereco.belongsTo(cliente)
+endereco.hasMany(agendamento)
 
 funcionario.belongsTo(lavaRapido)
 
