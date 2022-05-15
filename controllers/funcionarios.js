@@ -10,7 +10,7 @@ function buscaTodosFuncionarios(req, res) {
 }
 
 function buscarUmFuncionario(req, res) {
-  LavaRapidoRepository.findAll({
+  FuncionarioRepository.findAll({
     include: { all: true, nested: true },
     where: {
       id_funcionario: req.params.id_funcionario,
