@@ -84,4 +84,4 @@ export default {
   buscarAgendamentoCliente,
   buscarUmAgendamento,
 }
-// teste
+// teste2
